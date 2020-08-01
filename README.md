@@ -2,7 +2,7 @@
 *A fork by BumpierZulu9930 lol*
 ***
 
-**Noisemaker** is an adaptation of classic procedural noise generation algorithms, for Python 3 and, now, TensorFlow 2.
+**Noisemaker** is an adaptation of classic procedural noise generation algorithms, for Python 3.8 and TensorFlow 2, now!
 
 Read the docs at [readthedocs](http://noisemaker.readthedocs.io/).
 
