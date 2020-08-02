@@ -28,4 +28,4 @@ do
 	((counter++))
 done
 
-echo Done! "<3"
+echo "Done! <3"
