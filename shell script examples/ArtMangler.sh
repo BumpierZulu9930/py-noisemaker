@@ -15,3 +15,5 @@ read -p 'Effects: ' effects
 echo Ok, doing the stuff now!
 
 artmangler --name $outputImage $effects random $sourceImage
+
+echo "Hope you like the output!"

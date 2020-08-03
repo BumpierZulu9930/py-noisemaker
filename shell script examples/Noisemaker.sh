@@ -14,4 +14,4 @@ echo Ok, doing stuff now!
 
 noisemaker --name $outputPath $effects
 
-echo Done! <3
+echo "Done! <3"
