@@ -103,7 +103,7 @@ def _control():
     control = effects.convolve(constants.ValueMask.conv2d_sharpen, control, post_shape)
     control = effects.normalize(control)
 
-    with tf.Session().as_default():
+    with tf.compat.v1.Session().as_default():
         save(control, CONTROL_FILENAME)
 
 
@@ -128,7 +128,7 @@ def blended():
     high = tf.image.convert_image_dtype(load(HIGH_FILENAME), tf.float32)
 
     # blend_control = generators.multires(shape=shape, freq=FREQ * 4, ridges=True, octaves=4)
-    # blend_control = 1.0 - effects.value_map(blend_control, shape, keep_dims=True) * .5
+    # blend_control = 1.0 - effects.value_map(blend_control, shape, keepdims=True) * .5
 
     combined_land = effects.blend_layers(control, shape, 1.0, low, low, mid, high)
     combined_land = effects.erode(combined_land, shape, xy_blend=.5, **erode_kwargs)
@@ -147,7 +147,7 @@ def blended():
     combined = tf.image.adjust_contrast(combined, .75)
     combined = tf.image.adjust_saturation(combined, .625)
 
-    with tf.Session().as_default():
+    with tf.compat.v1.Session().as_default():
         save(combined, BLENDED_FILENAME)
 
 
@@ -180,5 +180,5 @@ def run_preset(preset_name, shape, filename, tensor=None):
 
     tensor = recipes.post_process(tensor, **kwargs)
 
-    with tf.Session().as_default():
+    with tf.compat.v1.Session().as_default():
         save(tensor, filename)
